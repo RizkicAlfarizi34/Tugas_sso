@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
 
 const IsLogin = () => {
     const access = localStorage.getItem("access")
     // console.log(access)
     if (access) {
-        return <Navigate to={"/dashboard"}/>
+        return <Outlet />
     } else {
-        return <Navigate to={"/login"}/>
+        return <Navigate to={"/login"} />
     }
 }
 
