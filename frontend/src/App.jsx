@@ -1,7 +1,13 @@
+import { Route, Routes } from "react-router-dom";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+
 export default function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello worldd!
-    </h1>
+    <Routes>
+      <Route path="/" element={<Dashboard />}>
+      </Route>
+      <Route path="/login" element={<Login />} />
+    </Routes>
   )
 }
