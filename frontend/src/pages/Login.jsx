@@ -7,7 +7,7 @@ const Login = () => {
     return (
         <div className="text-white h-[100vh] flex justify-center items-center bg-cover" style={{ "background": "url('../src/assets/p4.jpg')" }}>
             <div className="bg-slate-800 border border-slate-400 rounded-md p-8 shadow-lg backdrop-filter backdrop-blur-sm bg-opacity-30 relative">
-                <h1 className="text-4xl text-white font-bold text-center mb-6">Login</h1>
+                <h1 className="text-4xl text-white font-bold text-center mb-6">Loginn</h1>
                 <form action="">
                     <div className="relative my-4">
                         <input type="email" name="email" className="block w-72 py-2.5 px-0 text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:text-white focus:border-blue-600 peer" autoComplete="off" placeholder="" />
