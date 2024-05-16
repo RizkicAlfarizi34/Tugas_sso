@@ -8,8 +8,9 @@ export default function App() {
   return (
     <Routes>
       <Route element={<IsLogin />}>
-      <Route path="/" element={<Layout />}>
-      <Route index element={<Dashboard />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Route>
       </Route>
       <Route path="/login" element={<Login />} />
