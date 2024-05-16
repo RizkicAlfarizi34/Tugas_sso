@@ -73,7 +73,7 @@ const Login = () => {
                             <input type="checkbox" name="" id="" />
                             <label htmlFor="Remember Me">Remember Me</label>
                         </div>
-                        <Link to="" className="text-blue-500">Forgot Password?</Link>
+                        <Link to="#" className="text-blue-500">Forgot Password?</Link>
                     </div>
                     <button className="w-full mb-4 text-[18px] mt-6 rounded-full bg-white text-fuchsia-800 hover:bg-fuchsia-600 hover:text-white py-2 transition-colors duration-300" type="Submit" onClick={handleSubmit}>Login</button>
                     <div>
