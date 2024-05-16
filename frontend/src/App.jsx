@@ -3,6 +3,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import IsLogin from "./features/auth/isLogin";
 import Layout from "./components/shared/Layout";
+import IsAuth from "./features/auth/IsAuth";
 
 export default function App() {
   return (
@@ -13,7 +14,9 @@ export default function App() {
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>
       </Route>
-      <Route path="/login" element={<Login />} />
+      <Route element={<IsAuth />}>
+        <Route path="/login" element={<Login />} />
+      </Route>
     </Routes>
   )
 }
