@@ -1,9 +1,21 @@
 import React, { useState } from 'react'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { FaTimes } from 'react-icons/fa'
 import { CiMenuFries } from 'react-icons/ci'
+import { useDispatch } from 'react-redux'
+import { logout, reset } from '../features/auth/authSlice'
 
 const Nav = () => {
+
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const handleLogout = () => {
+    dispatch(logout())
+    dispatch(reset())
+    navigate("/login")
+  }
+
   const [click, setClick] = useState(false);
   const handleClick = () => {
     setClick(!click);
@@ -22,7 +34,7 @@ const Nav = () => {
               <Link spy={true} smooth={true} to="/">
                 <li className='hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer'>Home</li>
               </Link>
-              <Link spy={true} smooth={true} to="/login">
+              <Link spy={true} smooth={true} to="/login" onClick={handleLogout}>
                 <li className='hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer'>Logout</li>
               </Link>
             </ul>
