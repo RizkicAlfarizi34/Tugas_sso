@@ -1,3 +1,4 @@
+import React from 'react';
 import { Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
@@ -5,8 +6,6 @@ import Redirecting from './pages/Redirecting';
 import IsLogin from "./features/auth/isLogin";
 import Layout from "./components/shared/Layout";
 import IsAuth from "./features/auth/IsAuth";
-
-
 
 export default function App() {
   return (
@@ -18,9 +17,8 @@ export default function App() {
           <Route path="/redirecting" element={<Redirecting />} />
         </Route>
       </Route>
-      <Route element={<IsAuth />}>
-        <Route path="/login" element={<Login />} />
-      </Route>
+      <Route element={<IsAuth />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
-  )
+  );
 }
