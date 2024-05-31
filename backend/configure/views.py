@@ -4,7 +4,8 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework import status
 from django.contrib.auth.models import User
 from rest_framework.permissions import AllowAny
-from django.urls import path
+from django.shortcuts import render, redirect
+from .forms import SignUpForm
 
 class LoginAPIView(APIView):
     permission_classes = [AllowAny]  # Izin ini memungkinkan akses tanpa autentikasi.
@@ -26,7 +27,25 @@ class LoginAPIView(APIView):
             'access': str(refresh.access_token),
         })
 
+def home_view(request):
+    return render(request, 'home.html')
 
-urlpatterns = [
-    path('api/token/', LoginAPIView.as_view(), name='token_obtain_pair'),
-]
+def sign_up_view(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = User.objects.create_user(
+                username=form.cleaned_data['username'],
+                email=form.cleaned_data['email'],
+                password=form.cleaned_data['password']
+            )
+            return redirect('redirecting')
+    else:
+        form = SignUpForm()
+    return render(request, 'sign_up.html', {'form': form})
+
+def redirecting_view(request):
+    return render(request, 'redirecting.html')
+
+def welcome_view(request):
+    return render(request, 'welcome.html')

@@ -1,7 +1,9 @@
 from django import forms
 from .models import CustomUser
 
-class LoginForm(forms.ModelForm):
+class SignUpForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
+
     class Meta:
         model = CustomUser
-        fields = ['email', 'nama_perusahaan', 'nomor_telepon', 'status_login', 'last_login', 'session_timeout']
+        fields = ['email', 'password', 'nama_perusahaan', 'nomor_telepon']

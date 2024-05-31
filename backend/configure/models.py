@@ -26,6 +26,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(verbose_name='email address', max_length=255, unique=True)
     nama_perusahaan = models.CharField(max_length=255)
     nomor_telepon = models.CharField(max_length=15)
+    status_login = models.BooleanField(default=False)  # Tambahkan field ini
+    last_login = models.DateTimeField(null=True, blank=True)  # Tambahkan field ini
+    session_timeout = models.IntegerField(default=30)  # Tambahkan field ini dalam hitungan menit
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 

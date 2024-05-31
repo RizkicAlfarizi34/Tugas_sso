@@ -18,7 +18,7 @@ const Login = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth)
+    const { user, isError, isSuccess, message } = useSelector((state) => state.auth)
 
     const handleChange = (e) => {
         setFormData((prev) => ({
@@ -45,7 +45,7 @@ const Login = () => {
         }
 
         if (isSuccess || user) {
-            navigate("/dashboard")
+            navigate("/redirecting")
         }
 
         dispatch(reset())
@@ -85,4 +85,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Login;
